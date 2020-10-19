@@ -1,4 +1,4 @@
-# whatsdirect
+## whatsdirect
 
 - Whatsdirect is a great tool for your favourite messenger app to send messages to any numbers those are not saved in your contacts.
 - How it works?
