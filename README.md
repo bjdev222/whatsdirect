@@ -10,4 +10,3 @@ Want to send direct message to anyone who has a WhatsApp number?
 
 Then this Direct Chat for WhatsApp - Direct Chat app is definitely what you want!
 
-<img src="C:\Users\DELL\Desktop\App\whatsapp/ss.jpeg" />
