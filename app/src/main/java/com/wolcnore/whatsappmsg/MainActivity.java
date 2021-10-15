@@ -32,88 +32,63 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etnum, etmsg;
-    Button sendbtn;
+    EditText etNum, etMsg;
+    Button sendBtn;
     CountryCodePicker ccp;
     TextView q1, q2, q3;
     NativeAdLayout nativeAdLayout;
     NativeAd nativeAd;
-    private AdView adView2;
-    private LinearLayout adView;
     private InterstitialAd interstitialAd;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etmsg = findViewById(R.id.etmsg);
-        etnum = findViewById(R.id.etnum);
-        sendbtn = findViewById(R.id.sendbtn);
-        ccp = (CountryCodePicker) findViewById(R.id.ccp);
-        ccp.registerPhoneNumberTextView(etnum);
-
+        etMsg = findViewById(R.id.etmsg);
+        etNum = findViewById(R.id.etnum);
+        sendBtn = findViewById(R.id.sendbtn);
+        ccp = findViewById(R.id.ccp);
+        ccp.registerPhoneNumberTextView(etNum);
         q1 = findViewById(R.id.q1);
         q2 = findViewById(R.id.q2);
         q3 = findViewById(R.id.q3);
 
-        sendbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        sendBtn.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=" +
+                ccp.getFullNumberWithPlus() + "&text=" + etMsg.getText().toString()))));
+
+        q1.setOnClickListener(view -> {
+            if (ccp.getFullNumberWithPlus().equals("+91"))
+                Toast.makeText(MainActivity.this, "Enter Phone number", Toast.LENGTH_SHORT).show();
+            else {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=" +
-                        ccp.getFullNumberWithPlus() + "&text=" + etmsg.getText().toString())));
+                        ccp.getFullNumberWithPlus() + "&text=" + "Hi....")));
             }
         });
 
-        q1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (ccp.getFullNumberWithPlus().equals("+91"))
-                    Toast.makeText(MainActivity.this, "Enter Phone number", Toast.LENGTH_SHORT).show();
-                else {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=" +
-                            ccp.getFullNumberWithPlus() + "&text=" + "Hi....")));
-
-                }
-
-
+        q2.setOnClickListener(view -> {
+            if (ccp.getFullNumberWithPlus().equals("+91"))
+                Toast.makeText(MainActivity.this, "Enter Phone number", Toast.LENGTH_SHORT).show();
+            else {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=" +
+                        ccp.getFullNumberWithPlus() + "&text=" + "Hello....")));
             }
         });
-        q2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (ccp.getFullNumberWithPlus().equals("+91"))
-                    Toast.makeText(MainActivity.this, "Enter Phone number", Toast.LENGTH_SHORT).show();
-                else {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=" +
-                            ccp.getFullNumberWithPlus() + "&text=" + "Hello....")));
 
-                }
-
-
+        q3.setOnClickListener(view -> {
+            if (ccp.getFullNumberWithPlus().equals("+91"))
+                Toast.makeText(MainActivity.this, "Enter Phone number", Toast.LENGTH_SHORT).show();
+            else {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=" +
+                        ccp.getFullNumberWithPlus() + "&text=" + "How are you?")));
             }
         });
-        q3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (ccp.getFullNumberWithPlus().equals("+91"))
-                    Toast.makeText(MainActivity.this, "Enter Phone number", Toast.LENGTH_SHORT).show();
-                else {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=" +
-                            ccp.getFullNumberWithPlus() + "&text=" + "How are you?")));
 
-                }
-
-
-            }
-        });
         //banner
-        adView2 = new AdView(this, "854754431729257_854754895062544", AdSize.BANNER_HEIGHT_50);
+        AdView adView2 = new AdView(this, "854754431729257_854754895062544", AdSize.BANNER_HEIGHT_50);
+
         // Find the Ad Container
-        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
+        LinearLayout adContainer = findViewById(R.id.banner_container);
 
         // Add the ad view to your activity layout
         adContainer.addView(adView2);
@@ -121,11 +96,10 @@ public class MainActivity extends AppCompatActivity {
         // Request an ad
         adView2.loadAd();
 
-
-
-        //INterstitial facebook
+        //Interstitial facebook
         //facebook audience
         AudienceNetworkAds.initialize(this);
+
         //interstitial
         interstitialAd = new InterstitialAd(this, "854754431729257_854754978395869");
         InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
@@ -226,12 +200,11 @@ public class MainActivity extends AppCompatActivity {
         nativeAd.unregisterView();
 
         // Add the Ad view into the ad container.
-
         nativeAdLayout = findViewById(R.id.nativeAdLayout);
 
         LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
         // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
-        adView = (LinearLayout) inflater.inflate(R.layout.custom_layout_native_ad, nativeAdLayout, false);
+        LinearLayout adView1 = (LinearLayout) inflater.inflate(R.layout.custom_layout_native_ad, nativeAdLayout, false);
         LinearLayout adView = (LinearLayout) inflater.inflate(R.layout.custom_layout_native_ad, nativeAdLayout, false);
 
 

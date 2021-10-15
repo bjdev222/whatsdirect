@@ -10,9 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.wolcnore.whatsappmsg.start"></activity>
+        <activity android:name="com.wolcnore.whatsappmsg.start" />
         <activity android:name="com.wolcnore.whatsappmsg.MainActivity" />
-        <activity android:name="com.wolcnore.whatsappmsg.splash"
+        <activity
+            android:name="com.wolcnore.whatsappmsg.splash"
+            android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

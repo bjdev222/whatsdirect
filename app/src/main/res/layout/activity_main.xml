@@ -4,140 +4,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/wall"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    <LinearLayout
-        android:id="@+id/banner_container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="35sp"
-        android:text="Whats Direct"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:textColor="@color/colorPrimary"
-        ></TextView>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/corner2"
-        android:layout_marginBottom="12dp"
-        android:layout_gravity="center"
-
-        android:orientation="horizontal">
-        <com.rilixtech.widget.countrycodepicker.CountryCodePicker
-            android:id="@+id/ccp"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <EditText
-        android:id="@+id/etnum"
-        android:layout_width="205dp"
-        android:padding="7dp"
-        android:layout_height="55dp"
-        android:gravity="top|start"
-        android:inputType="number"
-        android:hint="Enter Number.."
-        android:lines="5"
-        android:scrollHorizontally="false"></EditText>
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/etmsg"
-        android:layout_width="205dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:padding="7dp"
-        android:gravity="top|start"
-        android:inputType="textMultiLine"
-        android:background="@drawable/corner2"
-        android:hint="Type Message..."
-        android:lines="5"
-        android:scrollHorizontally="false"></EditText>
-
-    <Button
-        android:id="@+id/sendbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:padding="5dp"
-        android:textColor="#ffffff"
-        android:layout_gravity="center"
-        android:background="@drawable/btn"
-        android:drawableRight="@drawable/ic_baseline_send_24"
-        android:text="Send"></Button>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:textColor="#000000"
-        android:padding="8dp"
-        android:background="@drawable/corner3"
-        android:text="Quick Response"></TextView>
-    <TextView
-        android:id="@+id/q1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="#000000"
-
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:padding="8dp"
-        android:background="@drawable/corner3"
-        android:text="Hi."></TextView>
-    <TextView
-        android:id="@+id/q2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:padding="8dp"
-        android:textColor="#000000"
-
-        android:background="@drawable/corner3"
-        android:text="Hello.."></TextView>
-    <TextView
-        android:id="@+id/q3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:background="@drawable/corner3"
-        android:padding="8dp"
-        android:textColor="#000000"
-
-        android:layout_margin="5dp"
-        android:text="How are you?"></TextView>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content">
-        <com.facebook.ads.NativeAdLayout
-            android:id="@+id/nativeAdLayout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"/>
-    </LinearLayout>
+            android:orientation="vertical">
 
 
+            <LinearLayout
+                android:id="@+id/banner_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:text="@string/whats_direct"
+                android:textColor="@color/colorPrimary"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:background="@drawable/corner2"
+                android:orientation="horizontal">
+
+                <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/etnum"
+                    android:layout_width="205dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:hint="@string/enter_number"
+                    android:inputType="number"
+                    android:lines="5"
+                    android:padding="7dp"
+                    android:scrollHorizontally="false" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etmsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/corner2"
+                android:gravity="center"
+                android:hint="@string/type_message"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:padding="10dp"
+                android:scrollHorizontally="false" />
+
+            <Button
+                android:id="@+id/sendbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:background="@drawable/btn"
+                android:drawableEnd="@drawable/ic_baseline_send_24"
+                android:drawableRight="@drawable/ic_baseline_send_24"
+                android:padding="10dp"
+                android:text="@string/send"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/corner3"
+                android:padding="10dp"
+                android:text="@string/quick_response"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/q1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/corner3"
+                android:padding="10dp"
+                android:text="@string/hi"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/q2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/corner3"
+                android:padding="10dp"
+                android:text="@string/hello"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/q3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/corner3"
+                android:padding="10dp"
+                android:text="@string/how_are_you"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <com.facebook.ads.NativeAdLayout
+                    android:id="@+id/nativeAdLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -17,14 +17,10 @@ public class splash extends AppCompatActivity {
             @Override
             public void run() {
                 Intent i = new Intent(splash.this, start.class);
-
                 startActivity(i);
-
                 // close this activity
-
                 finish();
-
             }
-        },3*1000);
+        }, 2 * 1000);
     }
 }

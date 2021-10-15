@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WhatDirect</string>
+    <string name="whats_direct">Whats Direct</string>
+    <string name="enter_number">Enter Number..</string>
+    <string name="type_message">Type Message...</string>
+    <string name="send">Send</string>
+    <string name="quick_response">Quick Response</string>
+    <string name="hi">Hi.</string>
+    <string name="hello">Hello..</string>
+    <string name="how_are_you">How are you?</string>
 </resources>
