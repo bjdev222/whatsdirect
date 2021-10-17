@@ -31,7 +31,7 @@ import java.util.List;
 
 public class start extends AppCompatActivity {
 
-    Button start,rate,share,more;
+    Button start, rate, share, more;
 
     LinearLayout customAdView;
     NativeAdLayout nativeAdLayout;
@@ -47,16 +47,16 @@ public class start extends AppCompatActivity {
 
         AudienceNetworkAds.initialize(this);
 
-        start=findViewById(R.id.start);
-        share=findViewById(R.id.share);
-        rate=findViewById(R.id.rate);
-        more=findViewById(R.id.more);
+        start = findViewById(R.id.start);
+        share = findViewById(R.id.share);
+        rate = findViewById(R.id.rate);
+        more = findViewById(R.id.more);
 
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(start.this,MainActivity.class);
+                Intent intent = new Intent(start.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -112,7 +112,7 @@ public class start extends AppCompatActivity {
         adView2.loadAd();
 
         //native
-        nativeAdLayout=findViewById(R.id.nativeAdLayout);
+        nativeAdLayout = findViewById(R.id.nativeAdLayout);
 
         nativeAd = new NativeAd(this, "854754431729257_854754601729240");
 
@@ -162,14 +162,12 @@ public class start extends AppCompatActivity {
         nativeAd.unregisterView();
 
         // Add the Ad view into the ad container.
-
         nativeAdLayout = findViewById(R.id.nativeAdLayout);
 
         LayoutInflater inflater = LayoutInflater.from(start.this);
         // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
         adView = (LinearLayout) inflater.inflate(R.layout.custom_layout_native_ad, nativeAdLayout, false);
         LinearLayout adView = (LinearLayout) inflater.inflate(R.layout.custom_layout_native_ad, nativeAdLayout, false);
-
 
         nativeAdLayout.addView(adView);
 
@@ -209,11 +207,10 @@ public class start extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         alertDialog();
-
     }
 
     private void alertDialog() {
-        AlertDialog.Builder dialog=new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setMessage("Are you sure you want to exit? ");
 
         dialog.setPositiveButton("No",
@@ -233,10 +230,9 @@ public class start extends AppCompatActivity {
                     }
                 });
 
-        AlertDialog alertDialog=dialog.create();
+        AlertDialog alertDialog = dialog.create();
         alertDialog.show();
         alertDialog.setCanceledOnTouchOutside(false);
 
     }
-
 }
